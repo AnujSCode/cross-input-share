@@ -1,0 +1,96 @@
+<Project>
+  <!-- Common properties for all projects in the solution -->
+  <PropertyGroup>
+    <!-- Basic properties -->
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    
+    <!-- Code analysis -->
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <AnalysisMode>All</AnalysisMode>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    
+    <!-- Security -->
+    <SecurityCriticalAnalysis>true</SecurityCriticalAnalysis>
+    
+    <!-- Optimization -->
+    <Optimize>true</Optimize>
+    <DebugType>embedded</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    
+    <!-- Warnings -->
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningLevel>9999</WarningLevel>
+    
+    <!-- Documentation -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>$(MSBuildProjectDirectory)\$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+    
+    <!-- Versioning -->
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <InformationalVersion>1.0.0-dev</InformationalVersion>
+    
+    <!-- Output -->
+    <OutputPath>$(SolutionDir)bin\$(Configuration)\$(MSBuildProjectName)\</OutputPath>
+    <IntermediateOutputPath>$(SolutionDir)obj\$(Configuration)\$(MSBuildProjectName)\</IntermediateOutputPath>
+  </PropertyGroup>
+  
+  <!-- Common package references -->
+  <ItemGroup>
+    <!-- Security analyzers -->
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    
+    <!-- Security validation -->
+    <PackageReference Include="SecurityCodeScan.VS2019" Version="5.6.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    
+    <!-- Performance analyzers -->
+    <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.9.28">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    
+    <!-- Style analyzers -->
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.435">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    
+    <!-- Async analyzers -->
+    <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.9.28">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  
+  <!-- Common compile includes -->
+  <ItemGroup>
+    <Compile Include="$(MSBuildProjectDirectory)\**\*.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+  </ItemGroup>
+  
+  <!-- Common none includes -->
+  <ItemGroup>
+    <None Include="$(MSBuildProjectDirectory)\**\*.config" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+    <None Include="$(MSBuildProjectDirectory)\**\*.json" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+    <None Include="$(MSBuildProjectDirectory)\**\*.xml" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+  </ItemGroup>
+  
+  <!-- Code analysis rule sets -->
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)..\rulesets\SecurityRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)..\rulesets\AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,72 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    
+    <!-- Code coverage settings -->
+    <CollectCoverage>true</CollectCoverage>
+    <CoverletOutputFormat>cobertura</CoverletOutputFormat>
+    <CoverletOutput>./TestResults/coverage.xml</CoverletOutput>
+    <ExcludeByFile>**/obj/**/*.cs,**/Migrations/**/*.cs</ExcludeByFile>
+    <Exclude>[xunit.*]*</Exclude>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Core testing frameworks -->
+    <PackageReference Include="coverlet.collector" Version="6.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="xunit" Version="2.5.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    
+    <!-- Mocking and assertions -->
+    <PackageReference Include="Moq" Version="4.20.70" />
+    <PackageReference Include="FluentAssertions" Version="6.12.0" />
+    <PackageReference Include="Bogus" Version="35.5.0" />
+    
+    <!-- Integration testing -->
+    <PackageReference Include="Testcontainers" Version="3.8.0" />
+    <PackageReference Include="Testcontainers.PostgreSql" Version="3.8.0" />
+    
+    <!-- Performance testing -->
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.12" />
+    
+    <!-- Security testing -->
+    <PackageReference Include="OWASP.ZAP.NetStandard" Version="1.0.0" />
+    
+    <!-- Test utilities -->
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Project references -->
+    <ProjectReference Include="..\CrossInputShare.Core\CrossInputShare.Core.csproj" />
+    <ProjectReference Include="..\CrossInputShare.Security\CrossInputShare.Security.csproj" />
+    <ProjectReference Include="..\CrossInputShare.Network\CrossInputShare.Network.csproj" />
+    <ProjectReference Include="..\CrossInputShare.Platform\CrossInputShare.Platform.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Copy test configuration files -->
+    <None Update="appsettings.test.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="testdata\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

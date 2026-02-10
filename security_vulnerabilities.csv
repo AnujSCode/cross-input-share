@@ -1,0 +1,12 @@
+ID,Severity,Category,Location,Description,Impact,Remediation,Status
+C-01,Critical,Cryptography,SessionCode.cs (line 46),Weak random number generation using System.Random,Unauthorized session access,Use RandomNumberGenerator.Create(),Open
+C-02,Critical,Cryptography,IEncryptionService implementations,Missing key exchange protocol,Man-in-the-middle attacks,Implement X25519 key exchange and HKDF,Open
+H-01,High,Authentication,SessionCode.cs,Low entropy session codes (30 bits),Brute-force attacks,Increase to 8 random characters (40 bits),Open
+H-02,High,Authentication,SessionCode.cs,Weak checksum algorithm,Reduced effective entropy,Use Luhn mod N or HMAC-based checksum,Open
+H-03,High,Session Security,Missing server-side implementation,No session expiration or one-time use,Session reuse attacks,Implement server-side session management with 10-minute expiration,Open
+M-01,Medium,Authentication,DeviceFingerprint.cs,Shortened fingerprint display (8 chars),Collision risk,Display at least 12 characters,Open
+M-02,Medium,Privacy,DeviceFingerprint.cs,Deterministic fingerprint without salt,Device tracking across installations,Add per-installation random salt,Open
+M-03,Medium,Data Integrity,DeviceFingerprint.cs,Ambiguous concatenation with pipe separator,Fingerprint collisions,Use structured serialization (JSON),Open
+M-04,Medium,Access Control,SessionInfo.cs,Missing authorization checks,Unauthorized device management,Implement role-based access control,Open
+L-01,Low,Configuration,SessionFeaturesExtensions.cs,Insecure default features,Accidental data exposure,Default to minimal features or require explicit selection,Open
+L-02,Low,Input Validation,Encryption services,Missing comprehensive parameter validation,Potential null reference exceptions,Add Guard clauses for all public methods,Open

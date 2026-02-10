@@ -1,0 +1,411 @@
+<Window
+    x:Class="CrossInputShare.UI.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="using:CrossInputShare.UI"
+    xmlns:controls="using:CrossInputShare.UI.Controls"
+    xmlns:converters="using:CrossInputShare.UI.Converters"
+    xmlns:viewmodels="using:CrossInputShare.UI.ViewModels"
+    mc:Ignorable="d"
+    Title="Cross Input Share"
+    Width="1200"
+    Height="800"
+    MinWidth="800"
+    MinHeight="600">
+
+    <Window.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <converters:ConnectionStatusToColorConverter x:Key="ConnectionStatusToColorConverter" />
+        
+        <Style TargetType="Border" x:Key="StatusIndicatorStyle">
+            <Setter Property="Width" Value="12" />
+            <Setter Property="Height" Value="12" />
+            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="Margin" Value="0,0,8,0" />
+        </Style>
+        
+        <Style TargetType="TextBlock" x:Key="DeviceNameStyle">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        
+        <Style TargetType="TextBlock" x:Key="DeviceDetailStyle">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Foreground" Value="{ThemeResource TextFillColorSecondary}" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        
+    </Window.Resources>
+
+    <Grid>
+        <NavigationView 
+            PaneDisplayMode="LeftCompact"
+            IsBackButtonVisible="Collapsed"
+            IsSettingsVisible="True">
+            
+            <NavigationView.MenuItems>
+                <NavigationViewItem Icon="Home" Content="Dashboard" Tag="dashboard" />
+                <NavigationViewItem Icon="People" Content="Devices" Tag="devices" />
+                <NavigationViewItem Icon="Setting" Content="Settings" Tag="settings" />
+            </NavigationView.MenuItems>
+            
+            <NavigationView.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <!-- Connection Status Indicator -->
+                    <Border 
+                        Grid.Column="0"
+                        Background="{Binding ConnectionStatus, Converter={StaticResource ConnectionStatusToColorConverter}}"
+                        Style="{StaticResource StatusIndicatorStyle}"
+                        Margin="0,0,12,0"
+                        VerticalAlignment="Center" />
+                    
+                    <!-- Title and Status -->
+                    <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center">
+                        <TextBlock 
+                            Text="{Binding Title}" 
+                            FontSize="18" 
+                            FontWeight="SemiBold" />
+                        <TextBlock 
+                            Text="{Binding ConnectionStatus, Converter={StaticResource ConnectionStatusToStringConverter}}"
+                            FontSize="12"
+                            Foreground="{ThemeResource TextFillColorSecondary}" />
+                    </StackPanel>
+                    
+                    <!-- Session Code -->
+                    <Border 
+                        Grid.Column="2"
+                        Background="{ThemeResource CardBackgroundFillColorDefault}"
+                        BorderBrush="{ThemeResource CardStrokeColorDefault}"
+                        BorderThickness="1"
+                        CornerRadius="4"
+                        Padding="12,8"
+                        Visibility="{Binding IsSessionActive, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <SymbolIcon Symbol="Link" />
+                            <TextBlock Text="{Binding SessionCode}" FontWeight="SemiBold" />
+                            <Button 
+                                Content="Copy" 
+                                Click="CopySessionCode_Click"
+                                Style="{StaticResource SmallButtonStyle}" />
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </NavigationView.Header>
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                
+                <!-- Quick Actions Bar -->
+                <StackPanel 
+                    Grid.Row="0"
+                    Orientation="Horizontal" 
+                    Spacing="12"
+                    Padding="24,16"
+                    Background="{ThemeResource CardBackgroundFillColorDefault}">
+                    
+                    <Button 
+                        Content="Create Session" 
+                        Command="{Binding CreateSessionCommand}"
+                        Style="{StaticResource AccentButtonStyle}"
+                        IsEnabled="{Binding IsBusy, Converter={StaticResource InvertBooleanConverter}}" />
+                    
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <TextBox 
+                            PlaceholderText="Enter session code"
+                            Text="{Binding SessionCode, Mode=TwoWay}"
+                            Width="200"
+                            IsEnabled="{Binding IsSessionActive, Converter={StaticResource InvertBooleanConverter}}" />
+                        <Button 
+                            Content="Join Session" 
+                            Command="{Binding JoinSessionCommand}"
+                            IsEnabled="{Binding IsBusy, Converter={StaticResource InvertBooleanConverter}}" />
+                    </StackPanel>
+                    
+                    <Button 
+                        Content="Disconnect" 
+                        Command="{Binding DisconnectCommand}"
+                        Style="{StaticResource DangerButtonStyle}"
+                        Visibility="{Binding IsSessionActive, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    
+                </StackPanel>
+                
+                <!-- Main Content Area -->
+                <Grid Grid.Row="1" Padding="24">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <!-- Connected Devices Panel -->
+                    <Border 
+                        Grid.Column="0"
+                        Background="{ThemeResource CardBackgroundFillColorDefault}"
+                        BorderBrush="{ThemeResource CardStrokeColorDefault}"
+                        BorderThickness="1"
+                        CornerRadius="8"
+                        Padding="16">
+                        <StackPanel>
+                            <TextBlock 
+                                Text="Connected Devices" 
+                                FontSize="16" 
+                                FontWeight="SemiBold"
+                                Margin="0,0,0,16" />
+                            
+                            <ItemsControl ItemsSource="{Binding ConnectedDevices}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border 
+                                            Background="{ThemeResource CardBackgroundFillColorSecondary}"
+                                            BorderBrush="{ThemeResource CardStrokeColorDefault}"
+                                            BorderThickness="1"
+                                            CornerRadius="6"
+                                            Padding="12"
+                                            Margin="0,0,0,8">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="Auto" />
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                
+                                                <!-- Status Indicator -->
+                                                <Border 
+                                                    Grid.Column="0"
+                                                    Grid.RowSpan="2"
+                                                    Background="{Binding StatusColor}"
+                                                    Style="{StaticResource StatusIndicatorStyle}"
+                                                    Margin="0,0,12,0" />
+                                                
+                                                <!-- Device Name and Role -->
+                                                <StackPanel Grid.Column="1" Grid.Row="0">
+                                                    <TextBlock 
+                                                        Text="{Binding DisplayName}" 
+                                                        Style="{StaticResource DeviceNameStyle}" />
+                                                    <TextBlock 
+                                                        Text="{Binding RoleDisplay}" 
+                                                        Style="{StaticResource DeviceDetailStyle}" />
+                                                </StackPanel>
+                                                
+                                                <!-- Platform -->
+                                                <TextBlock 
+                                                    Grid.Column="1" 
+                                                    Grid.Row="1"
+                                                    Text="{Binding Platform}"
+                                                    Style="{StaticResource DeviceDetailStyle}"
+                                                    Margin="0,4,0,0" />
+                                                
+                                                <!-- Connection Time -->
+                                                <TextBlock 
+                                                    Grid.Column="2" 
+                                                    Grid.Row="0"
+                                                    Text="{Binding ConnectedSince, StringFormat='Connected: {0:HH:mm}'}"
+                                                    Style="{StaticResource DeviceDetailStyle}" />
+                                                
+                                                <!-- Feature Toggles -->
+                                                <StackPanel 
+                                                    Grid.Column="0" 
+                                                    Grid.ColumnSpan="3"
+                                                    Grid.Row="2"
+                                                    Orientation="Horizontal"
+                                                    Spacing="8"
+                                                    Margin="0,12,0,0">
+                                                    <ToggleButton 
+                                                        Content="⌨️"
+                                                        ToolTipService.ToolTip="Keyboard"
+                                                        IsChecked="{Binding IsKeyboardShared, Mode=TwoWay}"
+                                                        Command="{Binding ToggleKeyboardCommand}"
+                                                        Style="{StaticResource FeatureToggleStyle}" />
+                                                    <ToggleButton 
+                                                        Content="🖱️"
+                                                        ToolTipService.ToolTip="Mouse"
+                                                        IsChecked="{Binding IsMouseShared, Mode=TwoWay}"
+                                                        Command="{Binding ToggleMouseCommand}"
+                                                        Style="{StaticResource FeatureToggleStyle}" />
+                                                    <ToggleButton 
+                                                        Content="📋"
+                                                        ToolTipService.ToolTip="Clipboard"
+                                                        IsChecked="{Binding IsClipboardShared, Mode=TwoWay}"
+                                                        Command="{Binding ToggleClipboardCommand}"
+                                                        Style="{StaticResource FeatureToggleStyle}" />
+                                                    <ToggleButton 
+                                                        Content="🖥️"
+                                                        ToolTipService.ToolTip="Screen"
+                                                        IsChecked="{Binding IsScreenShared, Mode=TwoWay}"
+                                                        Command="{Binding ToggleScreenCommand}"
+                                                        Style="{StaticResource FeatureToggleStyle}" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                            
+                            <TextBlock 
+                                Text="No devices connected"
+                                Visibility="{Binding HasConnectedDevices, Converter={StaticResource InvertBooleanToVisibilityConverter}}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontStyle="Italic"
+                                Foreground="{ThemeResource TextFillColorTertiary}"
+                                Margin="0,24,0,0" />
+                        </StackPanel>
+                    </Border>
+                    
+                    <!-- Divider -->
+                    <Rectangle 
+                        Grid.Column="1"
+                        Width="1"
+                        Fill="{ThemeResource DividerStrokeColorDefault}"
+                        Margin="24,0" />
+                    
+                    <!-- Feature Controls Panel -->
+                    <Border 
+                        Grid.Column="2"
+                        Background="{ThemeResource CardBackgroundFillColorDefault}"
+                        BorderBrush="{ThemeResource CardStrokeColorDefault}"
+                        BorderThickness="1"
+                        CornerRadius="8"
+                        Padding="16">
+                        <StackPanel>
+                            <TextBlock 
+                                Text="Feature Controls" 
+                                FontSize="16" 
+                                FontWeight="SemiBold"
+                                Margin="0,0,0,16" />
+                            
+                            <!-- Global Feature Toggles -->
+                            <StackPanel Spacing="12">
+                                <TextBlock 
+                                    Text="Global Settings" 
+                                    FontSize="14" 
+                                    FontWeight="Medium"
+                                    Margin="0,0,0,8" />
+                                
+                                <ToggleSwitch 
+                                    Header="Share Keyboard"
+                                    IsOn="{Binding IsKeyboardShared, Mode=TwoWay}"
+                                    OffContent="Disabled"
+                                    OnContent="Enabled"
+                                    Toggled="ToggleSwitch_Toggled" />
+                                
+                                <ToggleSwitch 
+                                    Header="Share Mouse"
+                                    IsOn="{Binding IsMouseShared, Mode=TwoWay}"
+                                    OffContent="Disabled"
+                                    OnContent="Enabled"
+                                    Toggled="ToggleSwitch_Toggled" />
+                                
+                                <ToggleSwitch 
+                                    Header="Share Clipboard"
+                                    IsOn="{Binding IsClipboardShared, Mode=TwoWay}"
+                                    OffContent="Disabled"
+                                    OnContent="Enabled"
+                                    Toggled="ToggleSwitch_Toggled" />
+                                
+                                <ToggleSwitch 
+                                    Header="Share Screen (Optional)"
+                                    IsOn="{Binding IsScreenShared, Mode=TwoWay}"
+                                    OffContent="Disabled"
+                                    OnContent="Enabled"
+                                    Toggled="ToggleSwitch_Toggled" />
+                            </StackPanel>
+                            
+                            <Rectangle 
+                                Height="1"
+                                Fill="{ThemeResource DividerStrokeColorDefault}"
+                                Margin="0,24,0,24" />
+                            
+                            <!-- Session Information -->
+                            <StackPanel>
+                                <TextBlock 
+                                    Text="Session Information" 
+                                    FontSize="14" 
+                                    FontWeight="Medium"
+                                    Margin="0,0,0,8" />
+                                
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    
+                                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Role:" Margin="0,0,12,8" />
+                                    <ComboBox 
+                                        Grid.Column="1" Grid.Row="0"
+                                        ItemsSource="{Binding AvailableRoles}"
+                                        SelectedItem="{Binding SelectedRole, Mode=TwoWay}"
+                                        IsEnabled="{Binding IsSessionActive, Converter={StaticResource InvertBooleanConverter}}"
+                                        Margin="0,0,0,8" />
+                                    
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="Enabled Features:" Margin="0,0,12,8" />
+                                    <TextBlock 
+                                        Grid.Column="1" Grid.Row="1"
+                                        Text="{Binding EnabledFeatures, Converter={StaticResource SessionFeaturesToStringConverter}}"
+                                        Margin="0,0,0,8" />
+                                    
+                                    <TextBlock Grid.Column="0" Grid.Row="2" Text="Security Level:" Margin="0,0,12,0" />
+                                    <TextBlock 
+                                        Grid.Column="1" Grid.Row="2"
+                                        Text="Verified"
+                                        Foreground="#4CAF50"
+                                        FontWeight="SemiBold" />
+                                </Grid>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+                
+                <!-- Status Bar -->
+                <Border 
+                    Grid.Row="2"
+                    Background="{ThemeResource CardBackgroundFillColorDefault}"
+                    BorderBrush="{ThemeResource CardStrokeColorDefault}"
+                    BorderThickness="0,1,0,0"
+                    Padding="12">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <TextBlock 
+                            Grid.Column="0"
+                            Text="{Binding StatusMessage}"
+                            VerticalAlignment="Center" />
+                        
+                        <ProgressRing 
+                            Grid.Column="1"
+                            IsActive="{Binding IsBusy}"
+                            Width="16"
+                            Height="16" />
+                    </Grid>
+                </Border>
+            </Grid>
+            
+        </NavigationView>
+    </Grid>
+</Window>

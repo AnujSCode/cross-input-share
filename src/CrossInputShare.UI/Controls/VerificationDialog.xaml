@@ -1,0 +1,106 @@
+<ContentDialog
+    x:Class="CrossInputShare.UI.Controls.VerificationDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Verify Device Connection"
+    PrimaryButtonText="Verify &amp; Connect"
+    SecondaryButtonText="Cancel"
+    DefaultButton="Primary"
+    CloseButtonText="Cancel">
+
+    <StackPanel Spacing="16">
+        <TextBlock 
+            Text="Compare the device fingerprints below to ensure you're connecting to the correct device."
+            TextWrapping="Wrap"
+            Foreground="{ThemeResource TextFillColorSecondary}" />
+        
+        <!-- Local Device Fingerprint -->
+        <Border 
+            Background="{ThemeResource CardBackgroundFillColorDefault}"
+            BorderBrush="{ThemeResource CardStrokeColorDefault}"
+            BorderThickness="1"
+            CornerRadius="4"
+            Padding="12">
+            <StackPanel Spacing="8">
+                <TextBlock 
+                    Text="Your Device Fingerprint"
+                    FontWeight="SemiBold" />
+                <TextBlock 
+                    Text="{Binding LocalFingerprint}"
+                    FontFamily="Consolas, Courier New, monospace"
+                    FontSize="14"
+                    TextWrapping="Wrap"
+                    TextAlignment="Center"
+                    Margin="0,8,0,0" />
+                <Button 
+                    Content="Copy"
+                    HorizontalAlignment="Center"
+                    Margin="0,8,0,0"
+                    Click="CopyLocalFingerprint_Click" />
+            </StackPanel>
+        </Border>
+        
+        <!-- Remote Device Fingerprint -->
+        <Border 
+            Background="{ThemeResource CardBackgroundFillColorDefault}"
+            BorderBrush="{ThemeResource CardStrokeColorDefault}"
+            BorderThickness="1"
+            CornerRadius="4"
+            Padding="12">
+            <StackPanel Spacing="8">
+                <TextBlock 
+                    Text="Remote Device Fingerprint"
+                    FontWeight="SemiBold" />
+                <TextBlock 
+                    Text="{Binding RemoteFingerprint}"
+                    FontFamily="Consolas, Courier New, monospace"
+                    FontSize="14"
+                    TextWrapping="Wrap"
+                    TextAlignment="Center"
+                    Margin="0,8,0,0" />
+                <TextBox 
+                    Header="Enter remote fingerprint to verify:"
+                    Text="{Binding EnteredFingerprint, Mode=TwoWay}"
+                    FontFamily="Consolas, Courier New, monospace"
+                    PlaceholderText="Paste fingerprint here..."
+                    Margin="0,8,0,0" />
+            </StackPanel>
+        </Border>
+        
+        <!-- Verification Status -->
+        <Border 
+            Background="{Binding VerificationStatusColor}"
+            CornerRadius="4"
+            Padding="12"
+            Visibility="{Binding ShowVerificationStatus, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                <SymbolIcon Symbol="{Binding VerificationStatusIcon}" />
+                <TextBlock 
+                    Text="{Binding VerificationStatusMessage}"
+                    FontWeight="SemiBold"
+                    VerticalAlignment="Center" />
+            </StackPanel>
+        </Border>
+        
+        <!-- Security Warning -->
+        <Border 
+            Background="#FFF44336"
+            CornerRadius="4"
+            Padding="12">
+            <StackPanel Spacing="4">
+                <TextBlock 
+                    Text="⚠️ Security Warning"
+                    FontWeight="SemiBold"
+                    Foreground="White" />
+                <TextBlock 
+                    Text="Only verify if you can physically see the fingerprint on the other device. Never share your fingerprint with untrusted parties."
+                    FontSize="12"
+                    Foreground="White"
+                    TextWrapping="Wrap" />
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</ContentDialog>
