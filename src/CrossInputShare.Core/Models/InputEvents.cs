@@ -159,7 +159,7 @@ namespace CrossInputShare.Core.Models
         /// </summary>
         public DateTime Timestamp { get; }
 
-        public ClipboardData(Guid sourceDeviceId, ClipboardFormat format, byte[] data, string text = null)
+        public ClipboardData(Guid sourceDeviceId, ClipboardFormat format, byte[] data, string? text = null)
         {
             OperationId = Guid.NewGuid();
             SourceDeviceId = sourceDeviceId;

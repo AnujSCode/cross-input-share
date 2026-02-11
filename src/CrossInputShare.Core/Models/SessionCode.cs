@@ -123,7 +123,7 @@ namespace CrossInputShare.Core.Models
         /// <summary>
         /// Equality comparison based on the code string.
         /// </summary>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             return obj is SessionCode other && _code == other._code;
         }

@@ -1,0 +1,6 @@
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Network/obj/CrossInputShare.Network/net8.0/CrossInputShare.Network.GeneratedMSBuildEditorConfig.editorconfig
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Network/obj/CrossInputShare.Network/net8.0/CrossInputShare.Network.AssemblyInfoInputs.cache
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Network/obj/CrossInputShare.Network/net8.0/CrossInputShare.Network.AssemblyInfo.cs
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Network/obj/CrossInputShare.Network/net8.0/CrossInputShare.Network.csproj.CoreCompileInputs.cache
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Network/obj/CrossInputShare.Network/net8.0/CrossInputShare.Network.sourcelink.json
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Network/obj/CrossInputShare.Network/net8.0/CrossInputShare.Network.csproj.AssemblyReference.cache

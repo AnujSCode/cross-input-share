@@ -71,7 +71,7 @@ namespace CrossInputShare.Core.Models
         /// <summary>
         /// Equality comparison based on device ID.
         /// </summary>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             return obj is DeviceInfo other && Id == other.Id;
         }

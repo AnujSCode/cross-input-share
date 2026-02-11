@@ -1,0 +1,17 @@
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.LinuxConsole/bin/CrossInputShare.LinuxConsole/net8.0/CrossInputShare.LinuxConsole
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.LinuxConsole/bin/CrossInputShare.LinuxConsole/net8.0/CrossInputShare.LinuxConsole.deps.json
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.LinuxConsole/bin/CrossInputShare.LinuxConsole/net8.0/CrossInputShare.LinuxConsole.runtimeconfig.json
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.LinuxConsole/bin/CrossInputShare.LinuxConsole/net8.0/CrossInputShare.LinuxConsole.dll
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.LinuxConsole/bin/CrossInputShare.LinuxConsole/net8.0/.xml
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.LinuxConsole/bin/CrossInputShare.LinuxConsole/net8.0/CrossInputShare.Core.dll
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.LinuxConsole/obj/CrossInputShare.LinuxConsole/net8.0/CrossInputShare.LinuxConsole.csproj.AssemblyReference.cache
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.LinuxConsole/obj/CrossInputShare.LinuxConsole/net8.0/CrossInputShare.LinuxConsole.GeneratedMSBuildEditorConfig.editorconfig
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.LinuxConsole/obj/CrossInputShare.LinuxConsole/net8.0/CrossInputShare.LinuxConsole.AssemblyInfoInputs.cache
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.LinuxConsole/obj/CrossInputShare.LinuxConsole/net8.0/CrossInputShare.LinuxConsole.AssemblyInfo.cs
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.LinuxConsole/obj/CrossInputShare.LinuxConsole/net8.0/CrossInputShare.LinuxConsole.csproj.CoreCompileInputs.cache
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.LinuxConsole/obj/CrossInputShare.LinuxConsole/net8.0/CrossInputShare.LinuxConsole.sourcelink.json
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.LinuxConsole/obj/CrossInputShare.LinuxConsole/net8.0/CrossInputShare.LinuxConsole.csproj.CopyComplete
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.LinuxConsole/obj/CrossInputShare.LinuxConsole/net8.0/CrossInputShare.LinuxConsole.dll
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.LinuxConsole/obj/CrossInputShare.LinuxConsole/net8.0/refint/CrossInputShare.LinuxConsole.dll
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.LinuxConsole/obj/CrossInputShare.LinuxConsole/net8.0/CrossInputShare.LinuxConsole.genruntimeconfig.cache
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.LinuxConsole/obj/CrossInputShare.LinuxConsole/net8.0/ref/CrossInputShare.LinuxConsole.dll

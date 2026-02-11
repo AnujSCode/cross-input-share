@@ -41,7 +41,8 @@
     <PackageReference Include="BenchmarkDotNet" Version="0.13.12" />
     
     <!-- Security testing -->
-    <PackageReference Include="OWASP.ZAP.NetStandard" Version="1.0.0" />
+    <!-- PackageReference Include="OWASP.ZAP.NetStandard" Version="1.0.0" / -->
+    <!-- OWASP.ZAP.NetStandard package doesn't exist on NuGet.org - commented out -->
     
     <!-- Test utilities -->
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />

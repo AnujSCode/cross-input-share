@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "t61yci2XgOCkZ9bBcKAy8PIMLSbxFLa7e0whOkRgmf/lEsWDau+7MLDvxQfF98UvaefT5q0G/brjNRRqn1bAaA==",
+  "dgSpecHash": "SAV0+6muwBIjTpwMkTk7hfDT/Bij4Hl3xlgz8rH+iMwJm6sq5aNWebXRm4g5mihK3FJ92v7YWm6mLjRzImYRQQ==",
   "success": true,
   "projectFilePath": "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Platform/CrossInputShare.Platform.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/openclaw-agent/.nuget/packages/microsoft.codeanalysis.netanalyzers/8.0.0/microsoft.codeanalysis.netanalyzers.8.0.0.nupkg.sha512",
+    "/home/openclaw-agent/.nuget/packages/microsoft.visualstudio.threading.analyzers/17.9.28/microsoft.visualstudio.threading.analyzers.17.9.28.nupkg.sha512",
+    "/home/openclaw-agent/.nuget/packages/securitycodescan.vs2019/5.6.7/securitycodescan.vs2019.5.6.7.nupkg.sha512",
+    "/home/openclaw-agent/.nuget/packages/stylecop.analyzers/1.2.0-beta.435/stylecop.analyzers.1.2.0-beta.435.nupkg.sha512",
+    "/home/openclaw-agent/.nuget/packages/stylecop.analyzers.unstable/1.2.0.435/stylecop.analyzers.unstable.1.2.0.435.nupkg.sha512"
+  ],
   "logs": []
 }

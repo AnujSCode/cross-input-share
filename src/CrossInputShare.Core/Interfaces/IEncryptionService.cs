@@ -35,7 +35,7 @@ namespace CrossInputShare.Core.Interfaces
         /// <param name="cancellationToken">Cancellation token for async operation</param>
         /// <returns>Encrypted data with authentication tag</returns>
         /// <exception cref="InvalidOperationException">Thrown if service is not initialized</exception>
-        Task<byte[]> EncryptAsync(byte[] plaintext, byte[] additionalData = null, CancellationToken cancellationToken = default);
+        Task<byte[]> EncryptAsync(byte[] plaintext, byte[]? additionalData = null, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Decrypts data and verifies the authentication tag.
@@ -46,7 +46,7 @@ namespace CrossInputShare.Core.Interfaces
         /// <returns>Decrypted plaintext</returns>
         /// <exception cref="InvalidOperationException">Thrown if service is not initialized</exception>
         /// <exception cref="CryptographicException">Thrown if authentication fails (tampering detected)</exception>
-        Task<byte[]> DecryptAsync(byte[] ciphertext, byte[] additionalData = null, CancellationToken cancellationToken = default);
+        Task<byte[]> DecryptAsync(byte[] ciphertext, byte[]? additionalData = null, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Encrypts a string (UTF-8 encoded).
@@ -56,7 +56,7 @@ namespace CrossInputShare.Core.Interfaces
         /// <param name="additionalData">Additional authenticated data (optional)</param>
         /// <param name="cancellationToken">Cancellation token for async operation</param>
         /// <returns>Encrypted data with authentication tag</returns>
-        Task<byte[]> EncryptStringAsync(string plaintext, byte[] additionalData = null, CancellationToken cancellationToken = default);
+        Task<byte[]> EncryptStringAsync(string plaintext, byte[]? additionalData = null, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Decrypts data to a string (UTF-8 encoded).
@@ -66,7 +66,7 @@ namespace CrossInputShare.Core.Interfaces
         /// <param name="additionalData">Additional authenticated data (must match what was used during encryption)</param>
         /// <param name="cancellationToken">Cancellation token for async operation</param>
         /// <returns>Decrypted string</returns>
-        Task<string> DecryptStringAsync(byte[] ciphertext, byte[] additionalData = null, CancellationToken cancellationToken = default);
+        Task<string> DecryptStringAsync(byte[] ciphertext, byte[]? additionalData = null, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Generates a cryptographically random nonce for encryption.

@@ -1,0 +1,10 @@
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Core/obj/CrossInputShare.Core/net8.0/CrossInputShare.Core.GeneratedMSBuildEditorConfig.editorconfig
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Core/obj/CrossInputShare.Core/net8.0/CrossInputShare.Core.AssemblyInfoInputs.cache
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Core/obj/CrossInputShare.Core/net8.0/CrossInputShare.Core.AssemblyInfo.cs
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Core/obj/CrossInputShare.Core/net8.0/CrossInputShare.Core.csproj.CoreCompileInputs.cache
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Core/obj/CrossInputShare.Core/net8.0/CrossInputShare.Core.sourcelink.json
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Core/bin/CrossInputShare.Core/net8.0/CrossInputShare.Core.deps.json
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Core/bin/CrossInputShare.Core/net8.0/CrossInputShare.Core.dll
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Core/obj/CrossInputShare.Core/net8.0/CrossInputShare.Core.dll
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Core/obj/CrossInputShare.Core/net8.0/refint/CrossInputShare.Core.dll
+/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Core/obj/CrossInputShare.Core/net8.0/ref/CrossInputShare.Core.dll

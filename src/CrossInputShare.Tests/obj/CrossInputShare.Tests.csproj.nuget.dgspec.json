@@ -4,6 +4,334 @@
     "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Tests/CrossInputShare.Tests.csproj": {}
   },
   "projects": {
+    "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Core/CrossInputShare.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Core/CrossInputShare.Core.csproj",
+        "projectName": "CrossInputShare.Core",
+        "projectPath": "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Core/CrossInputShare.Core.csproj",
+        "packagesPath": "/home/openclaw-agent/.nuget/packages/",
+        "outputPath": "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Core/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/openclaw-agent/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "allWarningsAsErrors": true,
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.CodeAnalysis.NetAnalyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.VisualStudio.Threading.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[17.9.28, )"
+            },
+            "SecurityCodeScan.VS2019": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.6.7, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.435, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.122/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Network/CrossInputShare.Network.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Network/CrossInputShare.Network.csproj",
+        "projectName": "CrossInputShare.Network",
+        "projectPath": "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Network/CrossInputShare.Network.csproj",
+        "packagesPath": "/home/openclaw-agent/.nuget/packages/",
+        "outputPath": "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Network/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/openclaw-agent/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "allWarningsAsErrors": true,
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.CodeAnalysis.NetAnalyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.VisualStudio.Threading.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[17.9.28, )"
+            },
+            "SecurityCodeScan.VS2019": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.6.7, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.435, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.122/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Platform/CrossInputShare.Platform.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Platform/CrossInputShare.Platform.csproj",
+        "projectName": "CrossInputShare.Platform",
+        "projectPath": "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Platform/CrossInputShare.Platform.csproj",
+        "packagesPath": "/home/openclaw-agent/.nuget/packages/",
+        "outputPath": "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Platform/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/openclaw-agent/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "allWarningsAsErrors": true,
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.CodeAnalysis.NetAnalyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.VisualStudio.Threading.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[17.9.28, )"
+            },
+            "SecurityCodeScan.VS2019": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.6.7, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.435, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.122/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Security/CrossInputShare.Security.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Security/CrossInputShare.Security.csproj",
+        "projectName": "CrossInputShare.Security",
+        "projectPath": "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Security/CrossInputShare.Security.csproj",
+        "packagesPath": "/home/openclaw-agent/.nuget/packages/",
+        "outputPath": "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Security/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/openclaw-agent/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Core/CrossInputShare.Core.csproj": {
+                "projectPath": "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Core/CrossInputShare.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "allWarningsAsErrors": true,
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.CodeAnalysis.NetAnalyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.VisualStudio.Threading.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[17.9.28, )"
+            },
+            "SecurityCodeScan.VS2019": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.6.7, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.435, )"
+            },
+            "System.Security.Cryptography.Algorithms": {
+              "target": "Package",
+              "version": "[4.3.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.122/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Tests/CrossInputShare.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -25,10 +353,24 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Core/CrossInputShare.Core.csproj": {
+                "projectPath": "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Core/CrossInputShare.Core.csproj"
+              },
+              "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Network/CrossInputShare.Network.csproj": {
+                "projectPath": "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Network/CrossInputShare.Network.csproj"
+              },
+              "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Platform/CrossInputShare.Platform.csproj": {
+                "projectPath": "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Platform/CrossInputShare.Platform.csproj"
+              },
+              "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Security/CrossInputShare.Security.csproj": {
+                "projectPath": "/home/openclaw-agent/.openclaw/workspace/cross_input_share/src/CrossInputShare.Security/CrossInputShare.Security.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
+          "allWarningsAsErrors": true,
           "warnAsError": [
             "NU1605"
           ]
@@ -38,9 +380,81 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "BenchmarkDotNet": {
+              "target": "Package",
+              "version": "[0.13.12, )"
+            },
+            "Bogus": {
+              "target": "Package",
+              "version": "[35.5.0, )"
+            },
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[6.12.0, )"
+            },
+            "Microsoft.CodeAnalysis.NetAnalyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Logging.Console": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[17.6.0, )"
+              "version": "[17.8.0, )"
+            },
+            "Microsoft.VisualStudio.Threading.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[17.9.28, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.70, )"
+            },
+            "OWASP.ZAP.NetStandard": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "SecurityCodeScan.VS2019": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.6.7, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.435, )"
+            },
+            "Testcontainers": {
+              "target": "Package",
+              "version": "[3.8.0, )"
+            },
+            "Testcontainers.PostgreSql": {
+              "target": "Package",
+              "version": "[3.8.0, )"
             },
             "coverlet.collector": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -50,13 +464,13 @@
             },
             "xunit": {
               "target": "Package",
-              "version": "[2.4.2, )"
+              "version": "[2.5.3, )"
             },
             "xunit.runner.visualstudio": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[2.4.5, )"
+              "version": "[2.5.3, )"
             }
           },
           "imports": [

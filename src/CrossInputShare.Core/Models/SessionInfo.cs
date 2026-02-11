@@ -106,7 +106,7 @@ namespace CrossInputShare.Core.Models
             ConnectedDevices = new List<DeviceInfo> { serverDevice };
             Status = SessionStatus.Created;
             IsVerified = false;
-            EnabledFeatures = SessionFeatures.Default;
+            EnabledFeatures = SessionFeaturesExtensions.Default;
         }
 
         /// <summary>

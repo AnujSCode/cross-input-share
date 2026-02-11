@@ -57,7 +57,7 @@ namespace CrossInputShare.Core.Models
         /// <summary>
         /// Equality comparison based on the fingerprint string.
         /// </summary>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             return obj is DeviceFingerprint other && _fingerprint == other._fingerprint;
         }
@@ -95,7 +95,7 @@ namespace CrossInputShare.Core.Models
         /// <param name="installationId">Installation-specific identifier</param>
         /// <param name="salt">Optional salt for additional privacy. If null, a random salt is generated.</param>
         /// <returns>A new DeviceFingerprint instance</returns>
-        public static DeviceFingerprint Generate(string platformInfo, string machineId, string installationId, byte[] salt = null)
+        public static DeviceFingerprint Generate(string platformInfo, string machineId, string installationId, byte[]? salt = null)
         {
             if (string.IsNullOrWhiteSpace(platformInfo))
                 throw new ArgumentException("Platform info cannot be null or empty", nameof(platformInfo));
@@ -159,10 +159,10 @@ namespace CrossInputShare.Core.Models
     /// </summary>
     internal class FingerprintData
     {
-        public string Platform { get; set; }
-        public string MachineId { get; set; }
-        public string InstallationId { get; set; }
-        public string Salt { get; set; }
+        public string Platform { get; set; } = string.Empty;
+        public string MachineId { get; set; } = string.Empty;
+        public string InstallationId { get; set; } = string.Empty;
+        public string Salt { get; set; } = string.Empty;
         public int Version { get; set; }
     }
 }

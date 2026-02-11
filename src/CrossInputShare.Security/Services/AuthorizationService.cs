@@ -451,7 +451,7 @@ namespace CrossInputShare.Security.Services
         public SessionAuthorizationContext(SessionInfo sessionInfo)
         {
             _sessionInfo = sessionInfo;
-            _features = sessionInfo?.EnabledFeatures ?? SessionFeatures.Default;
+            _features = sessionInfo?.EnabledFeatures ?? SessionFeaturesExtensions.Default;
             _isSessionVerified = sessionInfo?.IsVerified ?? false;
             
             if (sessionInfo != null)
